@@ -8,7 +8,7 @@ export const HomePage = () => {
     return (
         <>
             <GlobalStyles />
-            <Header />
+            <Header isMainPage={true} />
             <HomePageContent />
             <Footer />
         </>

@@ -8,7 +8,7 @@ export const FavoritesPage = () => {
     return (
         <>
             <GlobalStyles />
-            <Header />
+            <Header isMainPage={false} />
             <FavoritesPageContent />
             <Footer />
         </>

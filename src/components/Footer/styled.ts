@@ -18,6 +18,6 @@ export const Wrapper = styled.div`
 `;
 
 export const Modsen = styled.img`
-    width: 164px;
-    height: 60px;
+  width: 164px;
+  height: 60px;
 `;

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Logo = styled.div`
   display: flex;
@@ -11,7 +11,7 @@ export const LogoName = styled.div`
   display: flex;
   align-self: end;
   padding: 5px;
-  color: ${(props) => props.color};
+  color: ${props => props.color};
   span {
     margin-left: 5px;
     font-weight: bold;

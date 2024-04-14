@@ -1,16 +1,17 @@
+import { Footer } from '@components/Footer';
+import { HomePageContent } from '@components/HomePageContent';
+
 import { Header } from '@/components/Header';
-import { Footer} from "@components/Footer";
 
 import { GlobalStyles } from './styled';
-import {HomePageContent} from "@components/HomePageContent";
 
 export const HomePage = () => {
-    return (
-        <>
-            <GlobalStyles />
-            <Header isMainPage={true} />
-            <HomePageContent />
-            <Footer />
-        </>
-    );
+  return (
+    <>
+      <GlobalStyles />
+      <Header isMainPage />
+      <HomePageContent />
+      <Footer />
+    </>
+  );
 };

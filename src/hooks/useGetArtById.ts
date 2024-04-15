@@ -26,6 +26,7 @@ export const useGetArtById = (id: string | undefined) => {
       }
     };
 
+    // eslint-disable-next-line no-unused-expressions
     id && fetchArtData(+id);
   }, [id]);
 

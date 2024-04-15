@@ -47,7 +47,7 @@ export const HomePageContent = () => {
       <Container>
         <TitleBlock>
           <Title>
-            Let's Find Some <span>Art</span>
+            Let&apos;s Find Some <span>Art</span>
           </Title>
           <Title>Here!</Title>
         </TitleBlock>

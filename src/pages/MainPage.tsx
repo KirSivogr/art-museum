@@ -1,5 +1,5 @@
 import { Footer } from '@components/Footer';
-import { HomePageContent } from '@components/HomePageContent';
+import { HomePageContent } from '@components/PageContent/HomePageContent';
 
 import { Header } from '@/components/Header';
 

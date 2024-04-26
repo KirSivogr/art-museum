@@ -5,13 +5,16 @@ import { ArtByIdWithImage } from '@/types/interfaces';
 
 interface UseFetchArtListProps {
   recommendedArtList: ArtByIdWithImage[];
+  isRecArtListLoading: boolean
 }
 
 export function useGetRecommendedArtList(): UseFetchArtListProps {
   const [recommendedArtList, setRecommendedArtData] = useState<ArtByIdWithImage[]>([]);
+  const [isRecArtListLoading, setIsRecArtListLoading] = useState(false);
 
   useEffect(() => {
     const fetchRecommendedArtData = async () => {
+      setIsRecArtListLoading(true);
       try {
         const res = await getRecommendedArts();
         const recommendedArtsWithImages = res.map(
@@ -26,11 +29,13 @@ export function useGetRecommendedArtList(): UseFetchArtListProps {
       } catch (err) {
         console.log(err);
         throw err;
+      } finally {
+        setIsRecArtListLoading(false);
       }
     };
 
     fetchRecommendedArtData();
   }, []);
 
-  return { recommendedArtList };
+  return { recommendedArtList, isRecArtListLoading };
 }

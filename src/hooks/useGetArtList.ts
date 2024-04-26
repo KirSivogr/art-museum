@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 
 import { getArtLists } from '@/api/api';
 import { ArtByIdWithImage } from '@/types/interfaces';
@@ -6,7 +6,8 @@ import { ArtByIdWithImage } from '@/types/interfaces';
 interface UseFetchArtListProps {
   artList: ArtByIdWithImage[];
   totalPages: number;
-  isLoading: boolean;
+  isArtListLoading: boolean;
+  setArtList: Dispatch<SetStateAction<ArtByIdWithImage[]>>;
 }
 
 export function useGetArtList(
@@ -14,12 +15,12 @@ export function useGetArtList(
   pageNumber: number,
 ): UseFetchArtListProps {
   const [artList, setArtList] = useState<ArtByIdWithImage[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isArtListLoading, setIsArtListLoading] = useState(false);
   const [totalPages, setTotalPages] = useState(0);
 
   useEffect(() => {
     const fetchArtList = async () => {
-      setIsLoading(true);
+      setIsArtListLoading(true);
       try {
         const [res, pagination] = await getArtLists(query, pageNumber);
 
@@ -37,12 +38,12 @@ export function useGetArtList(
         console.log(error);
         throw error;
       } finally {
-        setIsLoading(false);
+        setIsArtListLoading(false);
       }
     };
 
     fetchArtList();
   }, [query, pageNumber]);
 
-  return { artList, isLoading, totalPages };
+  return { artList, isArtListLoading, totalPages, setArtList };
 }

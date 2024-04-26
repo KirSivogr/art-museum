@@ -1,12 +1,16 @@
 import styled from 'styled-components';
+import {colors} from "@/constants/colors";
 
 export const Container = styled.div`
-  width: 1280px;
+  width: 70%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 63px;
+  height: 63px; 
+  @media (max-width: 490px) {
+    width: 85%;
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -14,7 +18,7 @@ export const Wrapper = styled.div`
   align-items: center;
   height: 127px;
   width: 100%;
-  background: linear-gradient(90deg, #343333 38.05%, #484848 69.22%, #282828 98.98%);
+  background: ${colors.gradint};
 `;
 
 export const FavoritesIcon = styled.img`
@@ -32,22 +36,21 @@ export const FavoritesText = styled.div`
   display: flex;
   align-self: end;
   height: 20px;
-  width: 120px;
   padding: 6px;
-  color: white;
+  color: ${colors.white};
 `;
 
 export const Favorites = styled.div`
   display: flex;
   align-self: end;
-  color: white;
+  color: ${colors.white};
   cursor: pointer;
 `;
 
 export const Home = styled.div`
   align-self: end;
   display: flex;
-  color: white;
+  color: ${colors.white};
   cursor: pointer;
 `;
 
@@ -61,9 +64,12 @@ export const HomeText = styled.div`
   display: flex;
   align-self: end;
   height: 20px;
-  width: 80px;
+  width: 60px;
   padding: 6px;
-  color: white;
+  color: ${colors.white};
+  @media (max-width: 390px) {
+    font-size: 0.2rem;
+  }
 `;
 
 export const HomeIcon = styled.img`
@@ -73,4 +79,51 @@ export const HomeIcon = styled.img`
   &:hover {
     transform: scale(1.1);
   }
+`;
+
+export const BurgerMenu = styled.div<{ open: boolean }>`
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 300px;
+  background-color: ${colors.primary};
+  z-index: 10;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: ${({open}) => (open ? 'translateX(0)' : 'translateX(-100%)')};
+  transition: transform 0.3s ease-in-out;
+`;
+
+export const BurgerMenuLink = styled.a`
+  color: ${colors.white};
+  text-decoration: none;
+  font-size: 2.25rem;
+  margin: 20px 0;
+  cursor: pointer;
+`;
+
+export const CloseButton = styled.button`
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  color: ${colors.white};
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+`;
+
+export const Overlay = styled.div<{ open: boolean }>`
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: ${colors.grey};
+  z-index: 5;
+  display: ${({open}) => (open ? 'block' : 'none')};
 `;

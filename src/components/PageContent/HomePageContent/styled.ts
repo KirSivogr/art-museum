@@ -1,16 +1,16 @@
 import styled from 'styled-components';
 import { Field, Form } from 'formik';
+import {colors} from "@/constants/colors";
 
 export const Container = styled.div`
-  max-width: 1280px;
-  margin: 0 auto;
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  width: 70%;
+  margin: 0px auto;
 `;
 
 export const Wrapper = styled.div`
-  background-color: #f5f5f5;
+  background-color: ${colors.background};
 `;
 
 export const TitleBlock = styled.div`
@@ -28,7 +28,7 @@ export const Title = styled.div`
   text-align: center;
   span {
     font-weight: bold;
-    color: #f17900;
+    color: ${colors.secondary};
   }
 `;
 
@@ -37,17 +37,34 @@ export const StyledForm = styled(Form)`
   position: relative;
   justify-content: center;
   padding: 16px;
+  @media (max-width: 390px) {
+    margin-bottom: 10px;
+  }
+  @media (min-width: 391px) and (max-width: 768px) {
+    margin-bottom: 10px;
+  }
+  @media (min-width: 769px) {
+    margin-bottom: 10px;
+  }
 `;
 
 export const Input = styled(Field)`
-  width: 762px;
   display: flex;
   padding: 10px;
-  height: 55px;
+  height: 50px;
   border: none;
   border-radius: 7px;
   margin-bottom: 10px;
-  background: #3939390d;
+  background: ${colors.grey};
+  @media (max-width: 390px) {
+    width: 200px;
+  }
+  @media (min-width: 391px) and (max-width: 768px) {
+    width: 342px;
+  }
+  @media (min-width: 769px) {
+    width: 542px;
+  }
 `;
 
 export const SearchButton = styled.button<{ background_url: string }>`
@@ -68,6 +85,15 @@ export const Gallery = styled.div`
   gap: 20px;
   flex-wrap: wrap;
   margin-bottom: 120px;
+  @media (min-width: 769px) and (max-width: 1280px) {
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 80px;
+  }
+  @media (max-width: 769px) {
+    grid-template-columns: repeat(1, 1fr);
+    margin-bottom: 80px;
+    gap: 10px;
+  }
 `;
 
 export const RecommendedContainer = styled.div`

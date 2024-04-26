@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+import {colors} from "@/constants/colors";
 
 export const Container = styled.div`
-  max-width: 1280px;
-  margin: 0px auto;
+  max-width: 70%;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,7 +12,7 @@ export const Container = styled.div`
 export const Wrapper = styled.div`
   display: flex;
   width: 100%;
-  background-color: #f5f5f5;
+  background-color: ${colors.background};
 `;
 
 export const TitleBlock = styled.div`
@@ -35,7 +36,7 @@ export const SubTitle = styled.div`
   font-weight: 700;
   line-height: 80px;
   text-align: center;
-  color: #f17900;
+  color: ${colors.secondary};
 `;
 
 export const FavoritesContainer = styled.div`
@@ -45,12 +46,4 @@ export const FavoritesContainer = styled.div`
   width: 100%;
   gap: 10px;
   margin-bottom: 60px;
-`;
-
-export const Icon = styled.img`
-  position: absolute;
-  width: 60px;
-  height: 65px;
-  top: 332px;
-  left: 770px;
 `;

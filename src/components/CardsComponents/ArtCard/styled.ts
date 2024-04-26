@@ -11,7 +11,7 @@ export const Card = styled.div`
 
 export const CardImage = styled.div<{ background_url: string }>`
   background-image: url(${({ background_url }) => background_url});
-  max-width: 100%;
+  width: 100%;
   height: 100%;
   background-position: center center;
   background-size: cover;

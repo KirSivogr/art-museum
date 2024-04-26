@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import {colors} from "@/constants/colors";
 
 export const CardInformation = styled.div`
   display: flex;
@@ -33,7 +34,7 @@ export const Public = styled.div`
   line-height: 26.32px;
   letter-spacing: -0.01em;
   text-align: left;
-  color: #393939;
+  color: ${colors.primary};
 `;
 
 export const Icon = styled.div<{ isFav: boolean }>`
@@ -43,11 +44,12 @@ export const Icon = styled.div<{ isFav: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 60px;
-  height: 60px;
-  background-color: ${({ isFav }) => (isFav ? '#FBD7B24D' : '#F9F9F9')};
+  width: 40px;
+  height: 40px;
+  background-color: ${({ isFav }) => (isFav ? `${colors.gold}` : `${colors.background}`)};
   border-radius: 50%;
   margin-right: 10px;
+  cursor: pointer;
 `;
 
 export const Title = styled.div`
@@ -57,12 +59,12 @@ export const Title = styled.div`
   letter-spacing: -0.03em;
   text-align: left;
 
-  color: #333;
+  color: ${colors.primary};
 `;
 
 export const ArtistName = styled.div`
   font-size: 18px;
-  color: #e0a449;
+  color: ${colors.secondary};
   margin-bottom: 10px;
 `;
 
@@ -76,6 +78,6 @@ export const Description = styled.div`
 export const FavoriteIcon = styled.img`
   cursor: pointer;
   display: inline-block;
-  width: 34px;
-  height: 34px;
+  width: 20px;
+  height: 20px;
 `;

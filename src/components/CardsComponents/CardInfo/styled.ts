@@ -1,12 +1,13 @@
 import styled from 'styled-components';
+import {colors} from "@/constants/colors";
 
 export const CardInformation = styled.div`
   display: flex;
   height: 132px;
-  justify-content: space-around;
-  background-color: rgb(255, 255, 255);
+  justify-content: space-between;
+  background-color: ${colors.background};
   width: 90%;
-  margin-left: 10px;
+  margin-left: 5px;
   padding: 12px 24px;
   position: absolute;
   bottom: -70px;
@@ -18,8 +19,12 @@ export const CardInformation = styled.div`
 export const FavoriteIcon = styled.img`
   cursor: pointer;
   display: inline-block;
-  width: 34px;
-  height: 34px;
+  width: 20px;
+  height: 20px;
+  @media (max-width: 390px) {
+    width: 10px;
+    height: 10px;
+  }
 `;
 
 export const Icon = styled.div<{ isFav: boolean }>`
@@ -27,23 +32,27 @@ export const Icon = styled.div<{ isFav: boolean }>`
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  background-color: ${({ isFav }) => (isFav ? '#FBD7B24D' : '#F9F9F9')};
-  width: 60px;
-  height: 60px;
+  background-color: ${({ isFav }) => (isFav ? `${colors.gold}` : `${colors.white}`)};
+  width: 40px;
+  height: 40px;
   cursor: pointer;
+  @media (max-width: 390px) {
+    width: 15px;
+    height: 15px;
+  }
 `;
 
 export const Status = styled.div`
   font-size: 1rem;
   height: 1.62rem;
-  color: rgb(57, 57, 57);
+  color: ${colors.primary};
   font-weight: 700;
   margin-top: 15px;
 `;
 
 export const Title = styled.div`
   font-size: 1rem;
-  color: rgb(57, 57, 57);
+  color: ${colors.primary};
   font-weight: 500;
   margin-bottom: 10px;
   white-space: nowrap;
@@ -53,13 +62,13 @@ export const Title = styled.div`
 
 export const ArtistName = styled.div`
   font-size: 18px;
-  color: #e0a449;
+  color: ${colors.secondary};
   margin-bottom: 10px;
 `;
 
 export const Description = styled.div`
   display: flex;
-  width: 257px;
+  width: 80%;
   flex-direction: column;
   align-items: flex-start;
 `;

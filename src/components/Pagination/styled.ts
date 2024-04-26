@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import {colors} from "@/constants/colors";
 
 export const PaginationWrapper = styled.div`
   display: flex;
@@ -12,8 +13,8 @@ export const PageButton = styled.button<{ active: boolean }>`
   margin: 0 5px;
   border: none;
   border-radius: 5px;
-  background-color: ${({ active }) => (active ? '#F17900' : '#f5f5f5')};
-  color: ${({ active }) => (active ? 'white' : 'black')};
+  background-color: ${({ active }) => (active ? `${colors.secondary}` : `${colors.white}`)};
+  color: ${({ active }) => (active ? `${colors.white}` : `${colors.black}`)};
   cursor: pointer;
   outline: none;
 `;
@@ -22,9 +23,9 @@ export const ArrowButton = styled.button`
   padding: 8px 12px;
   margin: 0 5px;
   border-radius: 5px;
-  color: #000;
+  color: ${colors.black};
   cursor: pointer;
   outline: none;
   border: none;
-  background-color: #f5f5f5;
+  background-color: ${colors.white};
 `;

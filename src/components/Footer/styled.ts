@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+import {colors} from "@/constants/colors";
 
 export const Container = styled.div`
-  width: 1280px;
+  width: 70%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -14,7 +15,7 @@ export const Wrapper = styled.div`
   align-items: center;
   height: 127px;
   width: 100%;
-  background: white;
+  background: ${colors.white};
 `;
 
 export const Modsen = styled.img`

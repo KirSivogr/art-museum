@@ -1,4 +1,6 @@
 import axios, { AxiosInstance, AxiosResponse } from 'axios';
+import {ART_FOR_PAGE, ART_RECOMMENDED_LIMIT_FOR_PAGE, ARTLIST_LIMIT} from "@/constants/constants";
+
 
 export interface Artwork {
   id: number;
@@ -26,7 +28,7 @@ export async function getArtLists(query: string | undefined, page: number) {
       params: {
         q: query,
         page,
-        limit: 3,
+        limit: ART_FOR_PAGE,
         fields: 'id,artist_title,title,image_id',
       },
     });
@@ -42,8 +44,8 @@ export async function getRecommendedArts(): Promise<Artwork[]> {
   try {
     const response: AxiosResponse = await instance.get('artworks', {
       params: {
-        page: Math.floor(Math.random() * 101),
-        limit: 9,
+        page: Math.floor(Math.random() * ARTLIST_LIMIT),
+        limit: ART_RECOMMENDED_LIMIT_FOR_PAGE,
         fields: 'id,title,artist_title,image_id',
       },
     });

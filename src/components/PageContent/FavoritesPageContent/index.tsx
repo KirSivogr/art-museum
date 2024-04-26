@@ -1,4 +1,4 @@
-import { CardInfoWithImg } from '@components/CardInfoWithImg';
+import { CardInfoWithImg } from '@components/CardsComponents/CardInfoWithImg';
 import { SubtitleBlock } from '@components/SubtitleBlock';
 
 import {
@@ -20,7 +20,7 @@ export const FavoritesPageContent = () => {
         </TitleBlock>
         <SubtitleBlock infoSubtitle='Your favorites list' infoTitle='Saved by you' />
         <FavoritesContainer>
-          <CardInfoWithImg isFavoritePage recArtLists={[]} />
+          <CardInfoWithImg isFavoritePage recArtLists={[]} isLoading={false}/>
         </FavoritesContainer>
       </Container>
     </Wrapper>

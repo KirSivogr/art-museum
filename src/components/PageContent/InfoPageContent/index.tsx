@@ -1,4 +1,4 @@
-import { ArtData } from '@/types/interfaces';
+import {ArtByIdWithImage} from '@/types/interfaces';
 
 import {
   ArtistName,
@@ -13,34 +13,45 @@ import {
   Wrapper,
   YearsOfCreating,
 } from './styled';
+import {Loader} from "@components/Loader";
 
-export const InfoPageContent = ({ artData }: ArtData) => {
+interface InfoPageContentProps {
+  artData: ArtByIdWithImage | null;
+  isLoading: boolean;
+}
+
+export const InfoPageContent = ({ artData, isLoading } : InfoPageContentProps) => {
   return (
     <Wrapper>
       <Container>
         <ContentWrapper>
-          <Image background_url={artData.imageUrl} />
+          {isLoading
+              ?
+              <Loader />
+              :
+              <Image background_url={artData?.imageUrl} />
+          }
           <DescriptionWrapper>
             <MainDescriptionInfo>
-              <Title>{artData.title}</Title>
-              <ArtistName>{artData.artist_title}</ArtistName>
+              <Title>{artData?.title}</Title>
+              <ArtistName>{artData?.artist_title}</ArtistName>
               <YearsOfCreating>
-                {artData.date_start}-{artData.date_end}
+                {artData?.date_start}-{artData?.date_end}
               </YearsOfCreating>
             </MainDescriptionInfo>
             <Overview>
               Overview
               <OverviewItem>
-                Artist nationality: <span>{artData.place_of_origin}</span>
+                Artist nationality: <span>{artData?.place_of_origin}</span>
               </OverviewItem>
               <OverviewItem>
-                Dimensions Sheet: <span> {artData.dimensions}</span>
+                Dimensions Sheet: <span> {artData?.dimensions}</span>
               </OverviewItem>
               <OverviewItem>
-                Credit Line: <span> {artData.credit_line}</span>
+                Credit Line: <span> {artData?.credit_line}</span>
               </OverviewItem>
               <OverviewItem>
-                Repository: <span>{artData.copyright_notice} </span>
+                Repository: <span>{artData?.copyright_notice} </span>
               </OverviewItem>
               <OverviewItem>
                 <span>Public</span>

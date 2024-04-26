@@ -8,7 +8,7 @@ export const Footer = () => {
   return (
     <Wrapper>
       <Container>
-        <Logotype color='black' />
+        <Logotype color='black' onClick={() => null} />
         <Modsen alt='Modsen' src={modsenLogo} />
       </Container>
     </Wrapper>

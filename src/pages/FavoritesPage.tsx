@@ -1,4 +1,4 @@
-import { FavoritesPageContent } from '@components/FavoritesPageContent';
+import { FavoritesPageContent } from '@components/PageContent/FavoritesPageContent';
 import { Footer } from '@components/Footer';
 
 import { Header } from '@/components/Header';

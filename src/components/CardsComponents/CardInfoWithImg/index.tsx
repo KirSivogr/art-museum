@@ -1,9 +1,12 @@
 import { useNavigate } from 'react-router-dom';
-import { CardInfoProps } from '@components/CardInfo';
+import { CardInfoProps } from '@components/CardsComponents/CardInfo';
 
 import favIcon from '@/assets/icon.svg';
 import { useFavorite } from '@/hooks/useFavorite';
+import {Loader} from "@components/Loader";
 import { ArtByIdWithImage } from '@/types/interfaces';
+
+import {truncateString} from "@/utils/truncateString";
 
 import {
   ArtistName,
@@ -17,23 +20,13 @@ import {
   Title,
 } from './styled';
 
-const truncateString = (str: string) => {
-  if (str.length <= 19) {
-    return str;
-  }
-
-  return `${str.slice(0, 19)}...`;
-};
-
 interface CardInfoWithImgProps {
   recArtLists: ArtByIdWithImage[];
   isFavoritePage: boolean;
+  isLoading: boolean;
 }
 
-export const CardInfoWithImg = ({
-  recArtLists,
-  isFavoritePage,
-}: CardInfoWithImgProps) => {
+export const CardInfoWithImg = ({recArtLists, isFavoritePage, isLoading}: CardInfoWithImgProps) => {
   const { handleClickFavorite, favoritesItems } = useFavorite(undefined);
   const navigate = useNavigate();
 
@@ -43,22 +36,26 @@ export const CardInfoWithImg = ({
     <>
       {resultsItems.map(({ id, artist_title, imageUrl, title }: CardInfoProps) => (
         <CardInformation key={id}>
-          <Image
-            background_url={imageUrl}
-            onClick={() => navigate(`/artinfo/${id}`, { replace: false })}
-          />
+          {isLoading ? (
+              <Loader />
+          ) : (
+              <Image
+                  background_url={imageUrl}
+                  onClick={() => navigate(`/artinfo/${id}`, { replace: false })}
+              />
+          )}
           <Info>
             <Description>
               <Title>{truncateString(title)}</Title>
               <ArtistName>{artist_title}</ArtistName>
               <Public>Public</Public>
             </Description>
-            <Icon
-              onClick={() => handleClickFavorite(id, artist_title, imageUrl, title)}
-              isFav={favoritesItems.some(item => item.id === id)}
-            >
-              <FavoriteIcon src={favIcon} />
-            </Icon>
+              <Icon
+                  onClick={() => handleClickFavorite(id, artist_title, imageUrl, title)}
+                  isFav={favoritesItems.some(item => item.id === id)}
+              >
+                <FavoriteIcon src={favIcon} />
+              </Icon>
           </Info>
         </CardInformation>
       ))}

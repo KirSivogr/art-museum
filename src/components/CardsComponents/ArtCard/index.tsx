@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardInfo } from '@components/CardInfo';
+import { CardInfo } from '@components/CardsComponents/CardInfo';
 import { Loader } from '@components/Loader';
 
 import { Card, CardImage } from './styled';

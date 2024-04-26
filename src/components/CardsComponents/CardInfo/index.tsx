@@ -1,4 +1,5 @@
-import favIcon from 'src/assets/icon.svg';
+import favIcon from '@/assets/icon.svg';
+import {truncateString} from "@/utils/truncateString";
 
 import { useFavorite } from '@/hooks/useFavorite';
 
@@ -11,14 +12,6 @@ import {
   Status,
   Title,
 } from './styled';
-
-const truncateString = (str: string) => {
-  if (str.length <= 18) {
-    return str;
-  }
-
-  return `${str.slice(0, 18)}...`;
-};
 
 export interface CardInfoProps {
   imageUrl: string;

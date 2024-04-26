@@ -21,3 +21,5 @@ export interface ArtByIdWithImage extends ArtById {
 export interface ArtData {
   artData: ArtByIdWithImage;
 }
+
+export type SortType = 'A-Z' | 'Z-A' | 'latest' | 'newest' | ''
